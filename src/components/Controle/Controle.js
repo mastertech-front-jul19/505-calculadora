@@ -7,10 +7,10 @@ class Controle extends React.Component {
   render() {
     return (
       <div>
-        <Botao texto="-" />
+        <Botao clique={this.props.menos} texto="-" />
         <Botao texto="Start" />
         <Botao texto="Reset" />
-        <Botao texto="+" />
+        <Botao clique={this.props.mais} texto="+" />
       </div>
     );
   }
