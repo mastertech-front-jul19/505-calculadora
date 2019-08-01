@@ -8,7 +8,7 @@ import Controle from './components/Controle/Controle';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div style={AppStyle.app}>
         <Tempo />
         <Controle />
       </div>

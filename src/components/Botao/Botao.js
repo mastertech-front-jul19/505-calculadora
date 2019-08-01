@@ -3,7 +3,9 @@ import BotaoStyle from './BotaoStyle';
 
 class Botao extends React.Component {
   render() {
-    return null;
+    return (
+      <button style={BotaoStyle.botao}>TEXTO</button>
+    );
   }
 }
 
