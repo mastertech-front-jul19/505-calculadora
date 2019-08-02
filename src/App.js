@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      tempo: 0
+      tempo: 0,
+      contando: false
     };
     this.intervalo = null;
   }
@@ -42,18 +43,29 @@ class App extends React.Component {
     if(!this.intervalo){
       this.intervalo = setInterval(this.decrementar, 1000);
     }
+    this.setState({
+      contando: true
+    });
   }
 
   pararContador = () => {
     clearInterval(this.intervalo);
     this.intervalo = null;
+    this.setState({
+      contando: false
+    });
   }
 
   render() {
     return (
       <div style={AppStyle.app}>
         <Tempo valor={this.state.tempo}/>
-        <Controle start={this.start} zerar={this.zerar} mais={this.incrementar} menos={this.decrementar} />
+        <Controle 
+          start={this.start} 
+          zerar={this.zerar} 
+          mais={this.state.contando ? null : this.incrementar} 
+          menos={this.state.contando ? null : this.decrementar} 
+        />
       </div>
     );
   }
