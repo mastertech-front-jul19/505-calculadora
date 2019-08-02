@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       tempo: 0
     };
+    this.intervalo = null;
   }
 
   incrementar = () => {
@@ -34,7 +35,9 @@ class App extends React.Component {
   }
 
   start = () => {
-    setInterval(this.decrementar, 1000);
+    if(!this.intervalo){
+      this.intervalo = setInterval(this.decrementar, 1000);
+    }
   }
 
   render() {
