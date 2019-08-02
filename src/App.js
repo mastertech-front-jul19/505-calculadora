@@ -57,14 +57,19 @@ class App extends React.Component {
   }
 
   render() {
+
+    let funcoes = {
+      start: this.state.contando ? this.pararContador : this.start,
+      zerar: this.zerar,
+      mais: this.state.contando ? null : this.incrementar,
+      menos: this.state.contando ? null : this.decrementar
+    };
+
     return (
       <div style={AppStyle.app}>
         <Tempo valor={this.state.tempo}/>
         <Controle 
-          start={this.state.contando ? this.pararContador : this.start} 
-          zerar={this.zerar} 
-          mais={this.state.contando ? null : this.incrementar} 
-          menos={this.state.contando ? null : this.decrementar}
+          {...funcoes}
           contando={this.state.contando}
         />
       </div>
