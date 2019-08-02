@@ -20,9 +20,11 @@ class App extends React.Component {
   }
 
   decrementar = () => {
-    this.setState({
-      tempo: this.state.tempo - 1
-    });
+    if(this.state.tempo > 0){
+      this.setState({
+        tempo: this.state.tempo - 1
+      });
+    }
   }
 
   render() {
