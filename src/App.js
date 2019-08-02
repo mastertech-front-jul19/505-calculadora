@@ -61,10 +61,11 @@ class App extends React.Component {
       <div style={AppStyle.app}>
         <Tempo valor={this.state.tempo}/>
         <Controle 
-          start={this.start} 
+          start={this.state.contando ? this.pararContador : this.start} 
           zerar={this.zerar} 
           mais={this.state.contando ? null : this.incrementar} 
-          menos={this.state.contando ? null : this.decrementar} 
+          menos={this.state.contando ? null : this.decrementar}
+          contando={this.state.contando}
         />
       </div>
     );

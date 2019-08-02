@@ -8,7 +8,7 @@ class Controle extends React.Component {
     return (
       <div>
         <Botao clique={this.props.menos} texto="-" />
-        <Botao clique={this.props.start} texto="Start" />
+        <Botao clique={this.props.start} texto={this.props.contando ? "Stop" : "Start"} />
         <Botao clique={this.props.zerar} texto="Reset" />
         <Botao clique={this.props.mais} texto="+" />
       </div>
