@@ -26,9 +26,13 @@ class App extends React.Component {
         tempo: this.state.tempo - 1
       });
     }
+    else{
+      this.pararContador();
+    }
   }
 
   zerar = () => {
+    this.pararContador();
     this.setState({
       tempo: 0
     });
@@ -38,6 +42,11 @@ class App extends React.Component {
     if(!this.intervalo){
       this.intervalo = setInterval(this.decrementar, 1000);
     }
+  }
+
+  pararContador = () => {
+    clearInterval(this.intervalo);
+    this.intervalo = null;
   }
 
   render() {
