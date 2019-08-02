@@ -9,7 +9,7 @@ class Controle extends React.Component {
       <div>
         <Botao clique={this.props.menos} texto="-" />
         <Botao texto="Start" />
-        <Botao texto="Reset" />
+        <Botao clique={this.props.zerar} texto="Reset" />
         <Botao clique={this.props.mais} texto="+" />
       </div>
     );

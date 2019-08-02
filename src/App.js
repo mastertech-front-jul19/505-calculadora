@@ -27,11 +27,17 @@ class App extends React.Component {
     }
   }
 
+  zerar = () => {
+    this.setState({
+      tempo: 0
+    });
+  }
+
   render() {
     return (
       <div style={AppStyle.app}>
         <Tempo valor={this.state.tempo}/>
-        <Controle mais={this.incrementar} menos={this.decrementar} />
+        <Controle zerar={this.zerar} mais={this.incrementar} menos={this.decrementar} />
       </div>
     );
   }
