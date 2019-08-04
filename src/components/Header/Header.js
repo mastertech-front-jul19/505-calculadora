@@ -10,6 +10,7 @@ class Header extends Component {
                 <Link to="/">MasterTools</Link>
 
                 <Link to="/contador">Contador</Link>
+                <Link to="/calculadora">Calculadora</Link>
             </header>
         )
     }
