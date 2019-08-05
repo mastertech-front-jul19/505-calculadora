@@ -59,10 +59,10 @@ class Calculadora extends Component {
         
         this.atualizarVisor(resultado);
         this.setState({
-            primeiroNumero: 0,
+            primeiroNumero: resultado,
             segundoNumero: 0,
             operacao: ''
-        })
+        });
     }
     
     gerarBotoesNumericos = () => {
