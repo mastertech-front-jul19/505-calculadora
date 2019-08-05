@@ -7,10 +7,12 @@ class Header extends Component {
     render() {
         return (
             <header style={HeaderStyle.app}>
-                <Link to="/">MasterTools</Link>
+                <Link to="/" style={HeaderStyle.link}>MasterTools</Link>
 
-                <Link to="/contador">Contador</Link>
-                <Link to="/calculadora">Calculadora</Link>
+                <div style={HeaderStyle.navigationDiv}>
+                    <Link to="/contador" style={HeaderStyle.link}>Contador</Link>
+                    <Link to="/calculadora" style={HeaderStyle.link}>Calculadora</Link>
+                </div>
             </header>
         )
     }

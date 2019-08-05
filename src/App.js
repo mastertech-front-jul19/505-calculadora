@@ -8,10 +8,6 @@ import Contador from './components/Contador/Contador';
 import Calculadora from './components/Calculadora/Calculadora';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div style={AppStyle.app}>
