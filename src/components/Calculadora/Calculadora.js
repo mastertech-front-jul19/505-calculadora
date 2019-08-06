@@ -68,10 +68,35 @@ class Calculadora extends Component {
         
         this.atualizarVisor(resultado);
         this.setState({
-            primeiroNumero: resultado,
+            primeiroNumero: String(resultado),
             segundoNumero: '',
             operacao: ''
         });
+    }
+
+    zerarTudo = () => {
+        this.setState(
+            {
+                visor: '',
+                primeiroNumero: '',
+                segundoNumero: '',
+                operacao: ''
+            }
+        )
+    };
+
+    zerarValor = () => {
+        let novoEstado = this.state;
+        novoEstado.visor = '';
+
+        if (!novoEstado.operacao) {
+            novoEstado.primeiroNumero = '';
+        }
+        else {
+            novoEstado.segundoNumero = '';
+        }
+
+        this.setState(novoEstado);
     }
     
     gerarBotoesNumericos = () => {
@@ -101,6 +126,8 @@ class Calculadora extends Component {
                     <BotaoCalculadora valor={'x'} aoClicar={this.cliqueBotaoFuncao} />
                     <BotaoCalculadora valor={'÷'} aoClicar={this.cliqueBotaoFuncao} />
                     <BotaoCalculadora valor={'='} aoClicar={this.executar} />
+                    <BotaoCalculadora valor={'C'} aoClicar={this.zerarValor} />
+                    <BotaoCalculadora valor={'CE'} aoClicar={this.zerarTudo} />
                 </div>
             </section>
             </section>
