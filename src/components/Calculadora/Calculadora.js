@@ -25,10 +25,16 @@ class Calculadora extends Component {
         let novoEstado = this.state;
         
         if (!novoEstado.operacao) {
+            if (novoEstado.primeiroNumero.includes('.') && valor === '.') {
+                valor = '';
+            }
             novoEstado.primeiroNumero += valor;
             novoEstado.visor = novoEstado.primeiroNumero;        
         }
         else {
+            if (novoEstado.segundoNumero.includes('.') && valor === '.') {
+                valor = '';
+            }
             novoEstado.segundoNumero += valor;
             novoEstado.visor = novoEstado.segundoNumero;        
         }
@@ -87,6 +93,7 @@ class Calculadora extends Component {
             <section className='botoes'>
                 <div className='input'>
                     {this.gerarBotoesNumericos()}
+                    <BotaoCalculadora valor={'.'} aoClicar={this.cliqueBotaoNumerico} />
                 </div>
                 <div className='funcao'>
                     <BotaoCalculadora valor={'+'} aoClicar={this.cliqueBotaoFuncao} />
