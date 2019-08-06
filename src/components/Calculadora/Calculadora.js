@@ -11,8 +11,8 @@ class Calculadora extends Component {
         
         this.state = {
             visor: ' ',
-            primeiroNumero: 0,
-            segundoNumero: 0,
+            primeiroNumero: '',
+            segundoNumero: '',
             operacao: ''
         }
     }
@@ -24,15 +24,16 @@ class Calculadora extends Component {
     cliqueBotaoNumerico = (valor) => {
         let novoEstado = this.state;
         
-        if (!this.state.operacao) {
-            novoEstado.primeiroNumero = valor;
+        if (!novoEstado.operacao) {
+            novoEstado.primeiroNumero += valor;
+            novoEstado.visor = novoEstado.primeiroNumero;        
         }
         else {
-            novoEstado.segundoNumero = valor;
+            novoEstado.segundoNumero += valor;
+            novoEstado.visor = novoEstado.segundoNumero;        
         }
         
         this.setState(novoEstado);
-        this.atualizarVisor(valor);
     }
     
     cliqueBotaoFuncao = (valor) => {
@@ -41,7 +42,9 @@ class Calculadora extends Component {
     }
     
     executar = () => {
-        const { primeiroNumero, segundoNumero, operacao } = this.state;
+        const { operacao } = this.state;
+        const primeiroNumero = Number(this.state.primeiroNumero);
+        const segundoNumero = Number(this.state.segundoNumero);
         let resultado = 0;
         
         if (operacao === '+') {
@@ -60,7 +63,7 @@ class Calculadora extends Component {
         this.atualizarVisor(resultado);
         this.setState({
             primeiroNumero: resultado,
-            segundoNumero: 0,
+            segundoNumero: '',
             operacao: ''
         });
     }
@@ -69,7 +72,9 @@ class Calculadora extends Component {
         let botoes = [];
         
         for (let i = 9; i >= 0; i --) {
-            botoes.push(<BotaoCalculadora valor={i} aoClicar={this.cliqueBotaoNumerico} />);
+            botoes.push(
+                <BotaoCalculadora valor={String(i)} aoClicar={this.cliqueBotaoNumerico} />
+            );
         }
         
         return botoes;
